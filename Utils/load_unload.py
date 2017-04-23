@@ -45,4 +45,4 @@ def load_json(fn):
     """
     with open(fn, "r") as f:
         json_string = f.read()
-    return json.load(json_string)
+    return json.loads(json_string)
