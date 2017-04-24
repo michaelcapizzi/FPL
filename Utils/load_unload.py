@@ -54,4 +54,11 @@ def key_str2int(dict_):
     :param dict: <dict> to examine
     :return: new <dict>
     """
-    return {int(k):(int(v) if isinstance(v, str) else v) for k,v in dict_.items()}
+    try:
+        return {
+            (int(k) if isinstance(k, str) else k):v
+            for k,v in dict_.items()}
+    except:
+        return {
+            k:v for k,v in dict_.items()
+        }
