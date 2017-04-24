@@ -48,6 +48,11 @@ def build_player2team_lookup(summary_dataframe):
     return p2t
 
 
+# TODO build
+def build_team_id2team_lookup():
+    pass
+
+
 def load_data_player(player_id, url_base="https://fantasy.premierleague.com/drf/element-summary/"):
     """
     Loads player data from FPL site
