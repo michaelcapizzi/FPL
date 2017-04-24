@@ -42,14 +42,22 @@ def build_player_lookups(data_summary_json):
 
 
 def build_player2team_lookup(summary_dataframe):
-    p2t = OrderedDict()
+    """
+    Builds lookup dicts for player->team_id and team_id->team
+    :param summary_dataframe: output of load_summary_data()
+    :return: <tuple> (pi2t, ti2t)
+    """
+    pi2t = OrderedDict()
+    ti2t = OrderedDict()
     for player in summary_dataframe["elements"]:
-        p2t[player["id"]] = player["team_code"]
-    return p2t
+        pi2t[player["id"]] = player["team_code"]
+    for team in summary_dataframe["teams"]:
+        ti2t[team["code"]] = team["short_name"]
+    return pi2t, ti2t
 
 
 # TODO build
-def build_team_id2team_lookup():
+def build_team_id2team_lookup(summary_dataframe):
     pass
 
 
