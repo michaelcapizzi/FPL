@@ -45,4 +45,13 @@ def load_json(fn):
     """
     with open(fn, "r") as f:
         json_string = f.read()
-    return json.loads(json_string)
+    return json.loads(json_string, object_hook=key_str2int)
+
+
+def key_str2int(dict_):
+    """
+    Ensures that a key that *could* be an <int> is made one
+    :param dict: <dict> to examine
+    :return: new <dict>
+    """
+    return {int(k):(int(v) if isinstance(v, str) else v) for k,v in dict_.items()}

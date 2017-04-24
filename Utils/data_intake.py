@@ -41,6 +41,13 @@ def build_player_lookups(data_summary_json):
     return p2i_sorted, i2p_lookup
 
 
+def build_player2team_lookup(summary_dataframe):
+    p2t = OrderedDict()
+    for player in summary_dataframe["elements"]:
+        p2t[player["id"]] = player["team_code"]
+    return p2t
+
+
 def load_data_player(player_id, url_base="https://fantasy.premierleague.com/drf/element-summary/"):
     """
     Loads player data from FPL site

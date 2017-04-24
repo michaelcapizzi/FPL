@@ -16,9 +16,10 @@ def get_player_keys(player_dict):
     :param player_dict: Any player <dict>
     :return: <list> of keys
     """
-    return list(player_dict["history"][0].keys())
+    return ["last_name", "first_name", "team"] + list(player_dict["history"][0].keys())
 
 
+# TODO add data for last_name, first_name, and team
 def update_player_dataframe(existing_df, gw_dict):
     """
     Updates values in players dataframe
@@ -26,9 +27,13 @@ def update_player_dataframe(existing_df, gw_dict):
     :param gw_dict: Single <dict> representing a player's single GW data
     :return: <dataframe>
     """
+    gw_id = gw_dict["id"]
+    # TODO add check for gw_id
     return existing_df.append(
         gw_dict,
         ignore_index=True
     )
+
+
 
 
