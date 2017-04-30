@@ -2,14 +2,10 @@ from sklearn import *
 
 def experiment(X, y, clf, cv_folds=100, random_state=1978):
     """
-
-    :param X:
-    :param y:
-    :param clf:
+    Run an experiment with cross validation folds
     :param cv_folds:    If `None`, then train all
                         If "all", then LOO
-    :param random_state:
-    :return:
+    :return: ???
     """
     # make CV folds
     folds = model_selection.KFold(cv_folds, random_state=random_state)

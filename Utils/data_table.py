@@ -53,5 +53,13 @@ def update_player_dataframe(existing_df, gw_dict, player_id, i2p_lookup, p2t_loo
         )
 
 
+def build_history_df(player_dataframe, history_length):
+    """
+    Aggregates a player dataframe into a dataframe of historical stats
+    :param player_dataframe:
+    :param history_length:
+    :return:
+    """
+    # make a new dataframe
 
 
