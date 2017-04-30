@@ -1,6 +1,6 @@
 import pickle
 import json
-
+import pandas
 
 def pickle_data(obj, fn):
     """
@@ -46,6 +46,11 @@ def load_json(fn):
     with open(fn, "r") as f:
         json_string = f.read()
     return json.loads(json_string, object_hook=key_str2int)
+
+
+def load_dataframe(path_to_csv):
+    df = pandas.read_csv(path_to_csv)
+    return df
 
 
 def key_str2int(dict_):

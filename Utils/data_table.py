@@ -16,7 +16,7 @@ def get_player_keys(player_dict):
     :param player_dict: Any player <dict>
     :return: <list> of keys
     """
-    return ["player_id", "last_name", "first_name", "team", "team_code"] + list(player_dict["history"][0].keys())
+    return ["gw_id", "player_id", "last_name", "first_name", "team", "team_code"] + list(player_dict["history"][0].keys())
 
 
 def update_player_dataframe(existing_df, gw_dict, player_id, i2p_lookup, p2t_lookup, ti2t_lookup):
@@ -36,10 +36,12 @@ def update_player_dataframe(existing_df, gw_dict, player_id, i2p_lookup, p2t_loo
             player_id, gw_id
             )
         )
+        return existing_df
     else:
         # add columns
         last, first = i2p_lookup[player_id]
         team = p2t_lookup[player_id]
+        gw_dict["gw_id"] = gw_id
         gw_dict["player_id"] = player_id
         gw_dict["last_name"] = last
         gw_dict["first_name"] = first
