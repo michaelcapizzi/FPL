@@ -1,0 +1,2 @@
+This post shows how to read the data: https://medium.com/@YourMumSaysWhat/how-to-get-data-from-the-fantasy-premier-league-api-4477d6a334c3
+The comments have the updated URLs
